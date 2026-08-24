@@ -1,0 +1,18 @@
+{
+  "slug": "gatch",
+  "name": "Gatch",
+  "seed": 42,
+  "settings": {
+    "preset": "continents",
+    "grid_n": 96,
+    "ocean_fraction": 0.62,
+    "river_threshold": 6.0,
+    "world_km": 3000,
+    "n_capitals": 4,
+    "n_towns": 10,
+    "n_villages": 16,
+    "sea_level": 0.6314869101417947
+  },
+  "n_settlements": 30,
+  "n_rivers": 107
+}
