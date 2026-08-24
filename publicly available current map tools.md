@@ -93,4 +93,39 @@ The unclaimed position: **a platform where any creator gets a procedurally gener
 
 ---
 
+## Part 3: Business Viability Research (Round 2, Aug 2026)
+
+Follow-up research on how the players in this space are actually doing as businesses — company sizes, failures, market size, and the AI wildcard.
+
+### How the incumbents are doing commercially
+
+| Company | Scale | Signal |
+|---|---|---|
+| **Inkarnate** | ~23 employees, founded 2016, Austin | The biggest pure map-tool company in the niche after a decade. Headcount growing ~10%/yr, but web traffic recently fell 15% QoQ. |
+| **World Anvil** | Founded 2017, London; claims 3.5M+ registered worldbuilders | The largest platform by community; freemium subscriptions. No disclosed funding rounds of note — bootstrapped-scale. |
+| **LegendKeeper** | 3-person team (one developer) | Actively shipping (full UI rebuild June 2026); deliberately small independent team with a loyal user base. |
+| **fictionalmaps.com** | Early-stage, features in development | The closest concept match to vMap; still early in its development. |
+
+### Lessons from Project Deios
+
+The most instructive data point found. DungeonFog's **Project Deios** — a "mapmaker suite for worldbuilders" promising linked world/city/battle maps in one coherent system (the closest attempt yet at multi-scale world coherence) — [raised €421,985 from 4,059 Kickstarter backers](https://www.kickstarter.com/projects/dungeonfog/project-deios-dungeonfog-mapmaker-suite-for-worldbuilders), reached beta in November 2025, and [development was discontinued at the start of 2026](https://www.dungeonfog.com/deios/) (the beta remains available to backers). The takeaway for vMap: multi-scale coherent worlds are genuinely hard even for an experienced, funded team — which is why our plan ships one navigable scale first and treats scope discipline as a core requirement, and why we build on the proven real-world mapping stack instead of building an editor suite from scratch.
+
+### Market size
+
+- Global TTRPG market: [~$2.4B in 2026, projected ~$6.6B by 2035 (~12% CAGR)](https://www.globalgrowthinsights.com/market-reports/tabletop-role-playing-game-ttrpg-market-103239). Map/worldbuilding tools are a thin slice of that.
+- ~29% of TTRPG players already use AI for worldbuilding; digital-content integration is a top growth driver.
+- vMap's pitch also targets novelists, film/TV, game studios, and fandoms — larger but far more diffuse audiences that no incumbent has cracked.
+
+### The AI wildcard
+
+- Commentary in the space now explicitly names the vMap concept as the frontier: current AI can make a great world map *or* battle map, but not coherent zoom from world → region → city → building — ["essentially procedurally generated Google Maps for fantasy worlds"](https://www.aiphotogenerator.net/blog/2026/03/ai-map-generator-fantasy-dnd-guide) is described as the unbuilt next step. Validation that the idea is seen as valuable and unclaimed.
+- A wave of thin "AI fantasy map generator" sites (FantasyGen etc.) and AI-first worldbuilding apps (WorldSmith.io, ~$15/mo tier) is commoditizing static map *images* — which erodes the incumbents' moat more than it threatens vMap's navigability moat.
+- Long-term wildcard: [DeepMind's Genie 3 world models](https://en.wikipedia.org/wiki/Genie_(world_model)) generate interactive explorable environments from prompts. Today it's ephemeral game-like video, not persistent consistent worlds — but it's the direction big AI is heading for "explorable fictional places."
+
+### Why vMap deserves to exist
+
+The research across all three parts points the same way: every existing tool produces or hosts a *picture* of a world, while the demand — proven by hand-built fan projects, named by industry commentary as the unbuilt next step, and unserved by any incumbent — is for worlds you can *navigate, measure, and query*. vMap's contribution is the world model: fictional worlds as real, structured, explorable places. That's not a feature the incumbents are missing; it's a different product category, and it's open.
+
+---
+
 *Sources: [LegendKeeper's map-making software review](https://www.legendkeeper.com/map-making-software/), [TTRPG Stack](https://www.ttrpgstack.com/tools/inkarnate/), [Dungeon Alchemist press kit](https://www.dungeonalchemist.com/presskit), [Sigil sunset FAQ](https://dndbeyond-support.wizards.com/hc/en-us/articles/42550438974868-Sigil-Sunset-FAQ), [Geoawesome on fictional maps](https://geoawesome.com/fictional-maps-crafting-online-fantasy-worlds/), [OpenGeofiction About](https://wiki.opengeofiction.net/index.php/OpenGeofiction:About), [World Anvil map features](https://www.worldanvil.com/features/maps), [LegendKeeper map tool announcement](https://www.legendkeeper.com/the-new-legendkeeper-map-tool-is-here/), [fictionalmaps.com](https://fictionalmaps.com/), [char-gen AI battlemap roundup](https://char-gen.com/blogs/best-ai-battlemap-generators-dnd-2026).*
