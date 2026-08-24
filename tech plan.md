@@ -30,16 +30,16 @@ React app (MapLibre GL)  ←  tiles + API  ←  FastAPI  ←  PostGIS + object s
 
 ### Backend (Python)
 
-| Concern | Choice | Why |
-|---|---|---|
-| API | **FastAPI + Uvicorn** | Async, Pydantic v2 models, OpenAPI for free. |
-| Database | **PostgreSQL + PostGIS** | Industry-standard spatial DB: geometry types, spatial indexes, distance queries. Fictional worlds use a flat/custom CRS — PostGIS doesn't care that the planet isn't Earth. |
-| Worldgen engine | Python package (`vmap-worldgen`): numpy + scipy (Voronoi) + OpenSimplex noise | Azgaar-style pipeline: seed → heightmap → coastlines → rivers → biomes → settlements → roads. Deterministic from (seed, settings). Runs as background jobs. |
-| Tile pipeline | Raster tiles (XYZ scheme) rendered from world data / uploaded images; **PMTiles** single-file archives on object storage | Serverless-friendly tile serving: no tile server to run, CDN-cacheable. Vector tiles later for dynamic styling. |
-| Routing/distance | **networkx** graph over the world's road/path network; straight-line via PostGIS | Per-world unit system (leagues, days-on-horseback) is a config-level conversion. pgRouting if graphs get big. |
-| Jobs | Background worker (arq or Celery + Redis) | World generation and tiling are seconds-to-minutes tasks — never in a request cycle. |
-| Storage | S3-compatible object storage | Tiles, uploaded map images, assets. |
-| Auth | Managed auth (Clerk/Auth0) or FastAPI + JWT | Not a differentiator; buy, don't build. |
+| Concern          | Choice                                                                                                                   | Why                                                                                                                                                                         |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| API              | **FastAPI + Uvicorn**                                                                                                    | Async, Pydantic v2 models, OpenAPI for free.                                                                                                                                |
+| Database         | **PostgreSQL + PostGIS**                                                                                                 | Industry-standard spatial DB: geometry types, spatial indexes, distance queries. Fictional worlds use a flat/custom CRS — PostGIS doesn't care that the planet isn't Earth. |
+| Worldgen engine  | Python package (`vmap-worldgen`): numpy + scipy (Voronoi) + OpenSimplex noise                                            | Azgaar-style pipeline: seed → heightmap → coastlines → rivers → biomes → settlements → roads. Deterministic from (seed, settings). Runs as background jobs.                 |
+| Tile pipeline    | Raster tiles (XYZ scheme) rendered from world data / uploaded images; **PMTiles** single-file archives on object storage | Serverless-friendly tile serving: no tile server to run, CDN-cacheable. Vector tiles later for dynamic styling.                                                             |
+| Routing/distance | **networkx** graph over the world's road/path network; straight-line via PostGIS                                         | Per-world unit system (leagues, days-on-horseback) is a config-level conversion. pgRouting if graphs get big.                                                               |
+| Jobs             | Background worker (arq or Celery + Redis)                                                                                | World generation and tiling are seconds-to-minutes tasks — never in a request cycle.                                                                                        |
+| Storage          | S3-compatible object storage                                                                                             | Tiles, uploaded map images, assets.                                                                                                                                         |
+| Auth             | Managed auth (Clerk/Auth0) or FastAPI + JWT                                                                              | Not a differentiator; buy, don't build.                                                                                                                                     |
 
 ## Implementation Phases (summary)
 

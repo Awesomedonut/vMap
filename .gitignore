@@ -1,1 +1,7 @@
 private/
+__pycache__/
+*.pyc
+backend/.venv/
+backend/data/
+node_modules/
+frontend/dist/
