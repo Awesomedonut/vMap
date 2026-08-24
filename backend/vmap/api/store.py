@@ -14,7 +14,7 @@ from ..render.tiler import WorldRenderer
 from ..worldgen import model
 from ..worldgen.model import World, load_npz, norm_to_lonlat, save_npz
 
-DATA_DIR = Path(__file__).resolve().parents[3] / "data" / "worlds"
+DATA_DIR = Path(__file__).resolve().parents[2] / "data" / "worlds"
 
 
 def slugify(name: str) -> str:
