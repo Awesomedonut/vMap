@@ -18,6 +18,7 @@ What you create on vMap is a **world model**: a virtual representation of a fict
 - **Procedurally generated, then hand-tuned.** Like a Minecraft seed or Azgaar's generator: pick presets, adjust settings, generate a world — then go in and tweak it, or import your own coordinates and maps entirely. Age of Empires vibes, but for worldbuilding.
 - **Hosted worlds, Tumblr-style.** Every world lives at its own address — `aeloria.vmap.com`, `westmarch.vmap.com`, `my-dnd-world.vmap.com`. Creators publish a dedicated map site; communities explore it.
 - **Community + custom.** Shared community worlds anyone can explore, alongside private custom worlds for individual creators.
+- **Your world is yours.** Full ownership of everything you make, with one-click export of the entire world model — the map, the data, the seed. vMap hosts your world; it never owns it.
 
 ## Who It's For
 

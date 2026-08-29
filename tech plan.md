@@ -43,11 +43,20 @@ React app (MapLibre GL)  ←  tiles + API  ←  FastAPI  ←  PostGIS + object s
 
 ## Implementation Phases (summary)
 
-- **Phase 0 — Spike:** seeded worldgen → tiles → MapLibre, throwaway UI. Go/no-go gate.
-- **Phase 1 — MVP:** upload or generate a world; hosted at `myworld.vmap.com` with pan/zoom, markers, search, accounts.
-- **Phase 2 — Navigation:** unit calibration, distance tool, road routing with travel time by mode. The differentiator.
-- **Phase 3 — Depth & community:** layers, map-to-map linking, community directory, collaborators, lore panels.
+- **Phase 0 — Spike:** seeded worldgen → tiles → MapLibre, throwaway UI. Go/no-go gate. ✅ done
+- **Phase 1 — MVP:** upload or generate a world; hosted at `myworld.vmap.com` with pan/zoom, markers, search, accounts. Includes **Azgaar `.map`/JSON import** and **full world export** (see product principles below).
+- **Phase 2 — Navigation:** unit calibration, distance tool, road routing with travel time by mode. The differentiator. Includes a **shareable distance card** (image render of a route result: "Aeloria → Westmarch: 34 days by horse") — the unit of viral content for this feature.
+- **Phase 3 — Depth & community:** layers, map-to-map linking, community directory, collaborators, lore panels, author embed widget.
 - **Phase 4 — Street view (moonshot):** decoupled; AI panoramas → 360° viewer → real-time 3D.
+- **Backlog (validated demand, not yet scheduled):** timelines/eras (view the world at year 5 vs year 500), globe projection, classroom/education mode, offline viewing.
+
+## Product Principles (from market research, Aug 2026)
+
+1. **The user owns their world — visibly.** Full one-click export (GeoJSON features + tiles + seed + settings) ships in the MVP, and the ToS grants creators complete ownership of generated and uploaded content. Ownership anxiety is the #1 stated reason worldbuilders switch tools; export is a trust feature, not a convenience.
+2. **Never charge a subscription for the tool.** The niche's revealed pricing preference is strongly one-time/free-core. If anything is recurring, it is *hosting/serving* (which users understand as ongoing cost); one-time purchases fit themes/asset packs/pro renders.
+3. **Import is acquisition.** Azgaar's generator has the largest procedural-worldbuilding community and no hosting story (users lose local save files). Importing its export format is both a feature and the first-users channel. Same logic later for Wonderdraft/image imports.
+4. **Runs on potato hardware.** A large share of the audience is on old laptops and tablets. Server-rendered raster tiles + a lightweight viewer is a deliberate moat vs. 3D-heavy tools — keep the viewer dependency-light and test on weak devices.
+5. **Every world is a link; every feature should produce a shareable artifact.** World URLs, seeds, route cards, embeds. Sharing is the growth loop; anything that ends in a private screenshot is a dead end.
 
 ## Key Risks
 
@@ -184,12 +193,15 @@ Pydantic models for every request/response; auth via bearer token dependency; pe
 **Phase 1 — MVP (4–8 weeks)**
 - Postgres/PostGIS schema + Alembic; auth; world CRUD.
 - Generation as background job with progress UI; image upload + GDAL slicing + scale calibration.
+- **Azgaar import**: parse Azgaar's exported map JSON into vMap features (settlements, states, rivers, biomes) — feature + acquisition channel in one.
+- **Full export**: one-click download of GeoJSON + seed/settings + rendered tiles; stated ownership in ToS.
 - Tile pipeline with versioning; CDN serving; wildcard subdomain viewer with markers, labels, search.
 - Dashboard: my worlds, visibility, delete/regenerate. **Milestone: a stranger can generate a world and send someone a link to it.**
 
 **Phase 2 — Navigation (3–5 weeks)**
 - Unit system + calibration UI; measure tool; worldgen stages 7–9 (states, roads, names).
-- Routing engine + RoutePanel; travel modes; route sharing (URL encodes from/to/mode). **Milestone: the "34 days by horse" screenshot people share.**
+- Routing engine + RoutePanel; travel modes; route sharing (URL encodes from/to/mode).
+- Shareable distance card: server-rendered social image of a route result (map crop + "34 days by horse"). **Milestone: the distance card people share unprompted.**
 
 **Phase 3 — Depth & community (ongoing)**
 - Feature editing (draw roads/regions/markers), layers with zoom rules, map-to-map linking, public directory, collaborator roles, embeds (iframe for YouTubers/blogs), lore properties on features.
